@@ -38,11 +38,14 @@ createGallery(galleryItems, refs.gallery);
 
 function openModal(e) {
   e.preventDefault();
-  refs.lightbox.classList.add("is-open");
-  refs.lightboxImg.src = `${e.target.dataset.source}`;
-  refs.lightbox.alt = `${e.target.alt}`;
-  window.addEventListener("keydown", closeWithEsc);
-  window.addEventListener("keydown", navigateGallery);
+  if (target.nodeName === "IMG") {
+  
+    refs.lightbox.classList.add("is-open");
+    refs.lightboxImg.src = `${e.target.dataset.source}`;
+    refs.lightbox.alt = `${e.target.alt}`;
+    window.addEventListener("keydown", closeWithEsc);
+    window.addEventListener("keydown", navigateGallery);
+  } return ;
 }
 
 function closeModal({ target }) {
